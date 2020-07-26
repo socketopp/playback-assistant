@@ -7,7 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
-#include "include/policyconfig.h"
+#include "policyconfig.h"
 
 struct AudioDevice {
     std::wstring id;

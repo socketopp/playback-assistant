@@ -102,7 +102,7 @@ class VoiceAssistant(object):
         return self.response
 
     def process_speech(self, speech):
-        if self.match(speech, [self.wake_word]):
+        if self.match(speech, ["hey " + self.wake_word]):
             if self.match(speech, ["switch", "change", "shange"]):
                 self.switch_playback_device()
             else:

@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <fstream>
-#include <include/json/json.h>
-#include "include/policyconfig.h"
-#include "include/audio.h"
+#include "../include/json/json.h"
+#include "../include/policyconfig.h"
+#include "../include/audio.h"
 
 using namespace std;
 
@@ -47,6 +47,11 @@ int main(int argc, char* argv[])
     }
     if (FAILED(audio.initDevices())){
         return -1;
+    }
+    if (argc == 2){
+        if (strcmp(argv[1], "-print") == 0) {
+            audio.printConnectedDevices();
+        }
     }
 
     if (argc > 2){
