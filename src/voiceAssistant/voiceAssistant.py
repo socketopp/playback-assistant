@@ -8,6 +8,8 @@ import os
 import sys
 import subprocess
 import logging
+from threading import Thread
+from pynput.keyboard import Key, Listener
 
 class VoiceAssistant(object):
     """
@@ -18,6 +20,7 @@ class VoiceAssistant(object):
         "error": None,
         "transcription": None
     }
+    previous_key = None
 
     def __init__(self, wake_word):
         """
@@ -121,7 +124,7 @@ class VoiceAssistant(object):
         self.speak("Switching playback devices")
         subprocess.run([r'Playback.exe', '-switch', 'config.json'])
 
-    def start(self):
+    def start_assistant(self):
         self.speak("Initializing Voice assistant with wake word: " + self.wake_word)
         logging.basicConfig(filename='log_history.log', level=logging.INFO)
         recognizer = sr.Recognizer()
@@ -138,10 +141,24 @@ class VoiceAssistant(object):
 
                 self.reset_response()
 
-def main(wake_word):
+    def on_press(self, key):
+        if key == Key.f5 and self.previous_key == key.ctrl_l:
+            self.switch_playback_device()
+        else:
+            self.previous_key = key
 
+    def manual_switch(self):
+        with Listener(
+            on_press=self.on_press) as listener:
+            listener.join()
+
+    def run(self):
+        t1 = Thread(target = self.manual_switch).start()
+        t2 = Thread(target = self.start_assistant).start()
+
+def main(wake_word):
     va = VoiceAssistant(wake_word)
-    va.start()
+    va.run()
 
 if __name__ == '__main__':
     wake_word = sys.argv[1] if len(sys.argv) == 2 else "computer"
