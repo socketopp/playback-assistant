@@ -49,6 +49,9 @@ Available commands:
     * Turn on *speaker(s)* = Turns on speakers
     * Turn on *(headphone(s)/headset(s))* = Turns on headphones
     * *Switch/Change* = Switches or changes the playback devices
+### Manual switch
+
+If the voice recognition isn't responding as desired, you can always press CTRL+F5 to switch between your playback devices. 
 
 ## Run at startup (Windows)
 
