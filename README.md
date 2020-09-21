@@ -12,7 +12,7 @@ The voice assistant require Python version 3.8.2 or higher. To run the Python sc
 ## Getting Started
 Compile this in the root folder to generate .exe file. 
 ```
-$ cl src/main.cpp src/audio.cpp dist/jsoncpp.cpp ole32.lib
+$ cl -o Playback.exe src/main.cpp src/audio.cpp dist/jsoncpp.cpp ole32.lib
 ```
 
 In order to run the voice assistant you need to add your output devices in the config.json.
@@ -34,7 +34,7 @@ __Config.json__
 The project needs __3__ files in the same folder to work properly:
 ```
 voiceAssistant.py 
-main.exe (compiled earlier)
+Playback.exe (compiled earlier)
 config.json 
 ```
 Running voiceAssistant.py starts the voice assistant with default wake word as *Computer*. You can change the wake word by adding it as argument when booting the voice assistant.  
@@ -65,6 +65,7 @@ start /b python <path to> voiceAssistant.py
 2. Open Run and enter shell:startup. 
 3. Cut the .bat file and paste in the startup folder.
 Windows will now create a process that starts the voiceAssistant at startup. 
+Notice (Make sure that all necessary files are in the same folder as voiceAssistant.py, i.e. Playback.exe and config.json)
 
 
 ## Built With
