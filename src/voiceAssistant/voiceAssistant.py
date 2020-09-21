@@ -142,8 +142,9 @@ class VoiceAssistant(object):
                 self.reset_response()
 
     def on_press(self, key):
-        if key == Key.f5 and self.previous_key == key.ctrl_l:
+        if self.previous_key == Key.ctrl_l and key == Key.f3:
             self.switch_playback_device()
+            self.previous_key = None
         else:
             self.previous_key = key
 
