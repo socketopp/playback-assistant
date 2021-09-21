@@ -9,6 +9,14 @@ The playback service is built with MSVC 2017 64-bit compiler because IPolicyConf
 
 The voice assistant require Python version 3.8.2 or higher. To run the Python script, use *pip install* for all the necessary libraries.
 
+#### PyAudio
+
+Download the right Python version from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio), for Python 3.9 it's PyAudio-0.2.11-cp39-cp39-win_amd64.whl with a 64-bit machine. 
+Install it manually with pip 
+```
+$ pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
+```
+
 ## Getting Started
 Compile this in the root folder to generate .exe file. 
 ```
