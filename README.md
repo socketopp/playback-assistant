@@ -18,6 +18,9 @@ $ pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
 ```
 
 ## Getting Started
+
+If you are using MSVC 2022 then execute the VsDevCmd.bat in the terminal before. It sets up the required environment for compiling and linking.
+
 Compile this in the root folder to generate .exe file. 
 ```
 $ cl -o Playback.exe src/main.cpp src/audio.cpp dist/jsoncpp.cpp ole32.lib
@@ -26,7 +29,7 @@ $ cl -o Playback.exe src/main.cpp src/audio.cpp dist/jsoncpp.cpp ole32.lib
 In order to run the voice assistant you need to add your output devices in the config.json.
 You can use the compiled C++ program to see your available output devices. 
 ```
-$ ./Glitch.exe -print
+$ ./Playback.exe -print
 2460G4 (NVIDIA High Definition Audio)
 Speakers (Realtek(R) Audio)
 Headset Earphone (HyperX Virtual Surround Sound)
