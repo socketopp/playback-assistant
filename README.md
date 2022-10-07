@@ -7,6 +7,11 @@ This project consists of two parts, the voice assistant (Python) and the playbac
 ### Prerequisites
 The playback service is built with MSVC 2017 64-bit compiler because IPolicyConfig is reverse engineered to set default audio render endpoint on Windows OS. So make sure you have installed MSVC and have Developer Command Prompt in Windows, it is also possible to compile this using QT if you don't want to compie this using the command line. 
 
+Python lib requirements:
+- SpeechRecognition
+- pyttsx3
+- pynput
+
 The voice assistant require Python version 3.8.2 or higher. To run the Python script, use *pip install* for all the necessary libraries.
 
 #### PyAudio
