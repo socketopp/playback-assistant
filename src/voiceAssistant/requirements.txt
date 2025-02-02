@@ -1,0 +1,4 @@
+pyaudio
+SpeechRecognition
+pyttsx3
+pynput
